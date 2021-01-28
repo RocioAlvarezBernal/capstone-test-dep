@@ -1,0 +1,30 @@
+import React from 'react'
+
+class ___ extends React.Component {
+    render(){
+        return(
+            <div>
+
+            </div>
+        )
+    }
+}
+
+export default ___ 
+
+
+
+___________________________
+
+
+
+import React from 'react'
+
+function ___() {
+return(
+
+);
+}
+
+
+export  default ___;
