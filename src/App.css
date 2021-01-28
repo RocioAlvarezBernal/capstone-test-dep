@@ -122,7 +122,7 @@
   justify-content: space-around;
 }
 
-#userInfoDisp{
+.userInfoDisp{
   width: 300px;
   display: flex;
   flex-direction:column;

@@ -7,9 +7,6 @@ class SettingsPage extends React.Component {
     render(){
         return(
             <div id='SettingsPage'>
-            {/* <header>
-                <NavigationBar props/>
-            </header> */}
             <main id='SettingsPageMain' >
                 <UserInformation />
                 <AccountManagement />
