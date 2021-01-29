@@ -70,6 +70,8 @@ class UserInformation extends React.Component {
 
         return (
             <div>
+                <h4>User Information </h4>
+                <p>Double click to edit</p>
                 <FirstNameUserInfo />
                 <LastNameUserInfo />
                 <PasswordUserInfo />
