@@ -90,11 +90,11 @@ async doLogout(){
         return(
             <div>
                 <div className = 'container'>
-                    <LISbutton 
+                    {/* <LISbutton 
                             text={"LOGOUT"}
                             disabled={false}
                             onClick ={ () => this.doLogout()}
-                        />
+                        /> */}
                         <SIForm />
                 </div >
             </div>
