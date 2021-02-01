@@ -1,19 +1,108 @@
 import React from 'react'
-import NavigationBar from '../NavigationBar';
-import SUForm from '../SUForm'
+// import SUForm from '../SUForm'
 import SIForm from '../SIForm'
+import UserStore from '../UserStore'
+import LISbutton from "../LISbutton";
+import { observer } from 'mobx-react';
+
 class LandingPage extends React.Component {
-    render(){
-        return(
-            <main id='LandingPage' >
-                {/* <NavigationBar /> */}
-                <SUForm />
-                <SIForm />
 
-            </main>
+    async componentDidMount(){
+        try{
+            let res = await fetch('/isLoggedIn',{
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Contest-Type': 'application/json'
+            }
+        });
 
-        )
+        let result =await res.json();
+        if (result && result.sucess){
+            UserStore.loading = false; 
+            UserStore.isLoggedIn =true;
+            UserStore.username = result.username;
+
+        }
+
+        else{
+            UserStore.loading = false; 
+            UserStore.isLoggedIn =false;
+        }
+    }
+    catch(e){
+        UserStore.loading = false; 
+        UserStore.isLoggedIn =false;
     }
 }
 
-export default LandingPage  
+async doLogout(){
+    try{
+        let res = await fetch('/logout',{
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Contest-Type': 'application/json'
+        }
+        });
+
+        let result =await res.json();
+        if (result && result.sucess){
+            UserStore.isLoggedIn =false;
+            UserStore.username= '';
+
+        }
+    }
+    catch(e){
+        console.log(e)
+    }
+}
+
+    render(){
+        if (UserStore.loading){
+            return( 
+                <div>
+                    <div className='container'>
+                        loading...
+                    </div>
+                </div>
+            );
+        }
+        else{
+            
+            if(UserStore.isLoggedIn){
+                return( 
+                    <div>
+                        <div className='container'>
+                            welcome {UserStore.username}
+                            <LISbutton 
+                                text ={'LOG OUT'}
+                                disabled={false}
+                                onClick ={ () => this.doLogout()}
+                            />
+
+                        </div>
+                    </div>
+                );
+        }
+
+
+        return(
+            <div>
+                <div className = 'container'>
+                    <LISbutton 
+                            text={"LOGOUT"}
+                            disabled={false}
+                            onClick ={ () => this.doLogout()}
+                        />
+                        <SIForm />
+                </div >
+            </div>
+
+        );
+        }
+    }
+
+}
+
+export default observer(LandingPage); 

@@ -1,14 +1,13 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom';
-// import logo from '../images/T9Logo.png';
-
-
-
+// import moduleName from '../../public/T9Logo.png';
 class NavigationBar extends React.Component{
-    render(){
+
+    render(){        
         return(
             <nav id= "NavBar">
-                <img src='/src/images/T9Logo.png' alt='logo' id='logoImg'></img>
+                <img src={process.env.PUBLIC_URL + "/T9Logo.png"} alt='T9_logo' id='logoImg'/>
+
                 <ul>
                     <Link to='/Home'><li>Home</li></Link>
                     <Link to='/Settings'><li>User Settings</li></Link>

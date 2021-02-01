@@ -5,7 +5,7 @@ import NavigationBar from './component/NavigationBar'
 import HomePage from './component/pages/HomePage'
 import SettingsPage from './component/pages/SettingsPage';
 import LandingPage from './component/pages/LandingPage';
-import ExtrasPages from './component/pages/ExtrasPages'
+// import ExtrasPages from './component/pages/ExtrasPages'
 
 // practice 
 // import Nav from './practiceComponents/Nav'

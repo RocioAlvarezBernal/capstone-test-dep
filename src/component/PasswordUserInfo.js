@@ -2,8 +2,8 @@ import React from 'react'
 
 class PasswordUserInfo extends React.Component {
 
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             pass:'PassDefault',
             isInEditMode: false
