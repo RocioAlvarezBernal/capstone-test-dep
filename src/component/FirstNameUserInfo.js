@@ -1,4 +1,5 @@
 import React from 'react'
+import LISbutton from './LISbutton'
 
 class FirstNameUserInfo extends React.Component {
 
@@ -33,14 +34,27 @@ class FirstNameUserInfo extends React.Component {
             <div>
                 <h4>First Name:  </h4>
                 <input 
-                    class="userTextInput" 
+                    className='InputField'
                     type='text' 
                     name='fName' 
                     defaultValue={this.state.value}
                     ref="textInput"
                     />  
-                <button onClick={this.editMode}>X</button>
-                <button onClick={this.updateValue}>Ok</button>
+                {/* <button onClick={this.editMode}>X</button>
+                <button onClick={this.updateValue}>Ok</button> */}
+                  <LISbutton 
+                    text= 'Submit'
+                    disabled={this.props.disabled}
+                    onClick={this.updateValue}
+                    className='lisb'
+                    />
+
+                   <LISbutton 
+                    text= 'Cancel'
+                    disabled={this.props.disabled}
+                    onClick={this.editMode}
+                    className='lisb'
+                    />
             </div>
         )
     }
@@ -49,7 +63,7 @@ class FirstNameUserInfo extends React.Component {
         return(
             <div>
                 <h4>First Name:  </h4>
-            <div class = 'userInfoDisp'>
+            <div >
                 <p onDoubleClick={this.editMode}>{this.state.fName}</p>
             </div>
         </div>

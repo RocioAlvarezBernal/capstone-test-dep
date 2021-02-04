@@ -96,6 +96,7 @@ async doLogin(){
                     text= 'Sign in'
                     disabled={this.state.buttonDisables}
                     onClick ={ () => this.doLogin()}
+                    className='lisb'
                 />
             </div>
         )

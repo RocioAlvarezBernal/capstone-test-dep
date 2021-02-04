@@ -1,4 +1,5 @@
 import React from 'react'
+import LISbutton from './LISbutton'
 
 class PasswordUserInfo extends React.Component {
 
@@ -32,14 +33,29 @@ class PasswordUserInfo extends React.Component {
             <div>
                 <h4>Password:  </h4>
                 <input 
-                    class="userTextInput" 
+                    className='InputField'
                     type='text' 
                     name='pass' 
                     defaultValue={this.state.value}
                     ref="textInput"
                     />  
-                <button onClick={this.editMode}>X</button>
-                <button onClick={this.updateValue}>Ok</button>
+                {/* <button onClick={this.editMode}>X</button>
+                <button onClick={this.updateValue}>Ok</button> */}
+                    
+                    <LISbutton 
+                    text= 'Submit'
+                    disabled={this.props.disabled}
+                    onClick={this.updateValue}
+                    className='lisb'
+                    />
+
+                   <LISbutton 
+                    text= 'Cancel'
+                    disabled={this.props.disabled}
+                    onClick={this.editMode}
+                    className='lisb'
+                    />
+
             </div>
         )
     }
@@ -48,7 +64,7 @@ class PasswordUserInfo extends React.Component {
         return(
             <div>
                 <h4>Password:</h4>
-            <div class = 'userInfoDisp'>
+            <div >
                 <p onDoubleClick={this.editMode}>{this.state.pass}</p>
             </div>
         </div>

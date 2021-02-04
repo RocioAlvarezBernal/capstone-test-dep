@@ -47,10 +47,10 @@
   margin: 10px;
 } */
 
-#SettingsPage{
+/* #SettingsPage{
   border: solid;
   border-color:orange;
-}
+} */
 
 /* #LandingPage{
   border: solid;
@@ -116,14 +116,15 @@
 
 #SettingsPageMain{
   border: solid;
-  border-color: palegreen;
+  border-color: red;
   display: flex;
   flex-direction:row;
   justify-content: space-around;
+  width: 85%;
 }
 
 .userInfoDisp{
-  width: 300px;
+  width: 33%;
   display: flex;
   flex-direction:column;
   align-items: center ;
@@ -158,6 +159,8 @@
 body, html, #root, .app, .container {
   width: 100%;
   height: 100%;
+  /* height: 50px; */
+  /* height: 1000px; */
 
 }
 
@@ -169,8 +172,11 @@ body, html, #root, .app, .container {
   align-items: center;
   justify-content: center;
   background-color:rgb(40, 111, 158);
+  border: #1b2841;
   border-color:#1b2841;
-  border:solid
+  border:solid;
+  width: 100%;
+  height: 1000px;
 
 }
 

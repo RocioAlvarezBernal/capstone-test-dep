@@ -6,7 +6,7 @@ import UserInformation from '../UserInformation'
 class SettingsPage extends React.Component {
     render(){
         return(
-            <div id='SettingsPage'>
+            <div className = 'container'>
             <main id='SettingsPageMain' >
                 <UserInformation />
                 <AccountManagement />
