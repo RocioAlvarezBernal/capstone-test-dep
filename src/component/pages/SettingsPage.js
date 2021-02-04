@@ -8,7 +8,10 @@ class SettingsPage extends React.Component {
         return(
             <div className = 'container'>
             <main id='SettingsPageMain' >
+
+
                 <UserInformation />
+
                 <AccountManagement />
             </main>
             </div>

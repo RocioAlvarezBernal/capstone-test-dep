@@ -1,12 +1,26 @@
-.App {
+/* .App { */
+  html, body, #app, #app, .container{
+  height: 100%;
   text-align: center;
   /* background-color: midnightblue;
   color:white; */
+  width: 100%;
+  /* height: 100%; */
+  /* height: 1000px; */
 }
+
+/* body, html, #root, .app, .container {
+  width: 100%;
+  height: 100%;
+  /* height: 50px; 
+  /* height: 1000px; 
+
+} */
 
 #NavBar {
   border: solid;
-  border-color: #282c34;
+  border-color: #03173f;
+  /* background-color:#03173f ; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -116,32 +130,45 @@
 
 #SettingsPageMain{
   border: solid;
-  border-color: red;
+  border-color: white;
   display: flex;
   flex-direction:row;
   justify-content: space-around;
   width: 85%;
 }
 
-.userInfoDisp{
-  width: 33%;
+#userInfoDisp{
+  border: solid;
+  border-color:white;
+  width: 45%;
+  overflow: scroll;
   display: flex;
   flex-direction:column;
   align-items: center ;
-  border: dotted;
+  /* border-width: 1px; */
+}
+#userInfoDisp, h1{
+  border: solid;
+  border-width: .25px;
+  margin: 10%;
 }
 
-.userTextInput{
+#USins{
+  font-size: 10px;
+  margin-top: -30px; 
+}
+
+/* .userTextInput{
  height: 30px;
  width: 250px;
  /* margin-left: 40%; */
-/* justify-self: center; */
-}
+/* justify-self: center; }*/
 
-.userBtn{
+
+/*.userBtn{
   height: 30px;
   width: 200px;
-}
+} */
 
 #accMngmt{
   /* border-color:; */
@@ -156,25 +183,18 @@
 
 
 /* Sign In form  */
-body, html, #root, .app, .container {
-  width: 100%;
-  height: 100%;
-  /* height: 50px; */
-  /* height: 1000px; */
 
-}
 
 .container {
-  font-size: 28px;
+  font-size: 25px;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color:rgb(40, 111, 158);
-  border: #1b2841;
+  border: solid;
   border-color:#1b2841;
-  border:solid;
   width: 100%;
   height: 1000px;
 

@@ -28,3 +28,10 @@ return(
 
 
 export  default ___;
+
+
+ <LISbutton 
+    text ={'LOG OUT'}
+    disabled={false}
+    onClick ={ () => this.doLogout()}
+/>

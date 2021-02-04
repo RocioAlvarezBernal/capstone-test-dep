@@ -2,6 +2,7 @@ import React from 'react'
 import FirstNameUserInfo from './FirstNameUserInfo';
 import LastNameUserInfo from './LastNameUserInfo';
 import PasswordUserInfo from './PasswordUserInfo';
+import LISbutton from './LISbutton';
 
 class UserInformation extends React.Component {
 
@@ -69,12 +70,19 @@ class UserInformation extends React.Component {
         // const {pass} = this.state;
 
         return (
-            <div>
-                <h4>User Information </h4>
-                <p>Double click to edit</p>
+            <div id='userInfoDisp'>
+                <h1>User Information </h1>
+                <p id ='USins'>Double click to edit</p>
                 <FirstNameUserInfo />
                 <LastNameUserInfo />
                 <PasswordUserInfo />
+                <div>
+                <LISbutton 
+                    text ={'Delete Your Account'}
+                    disabled={false}
+                    onClick ={ console.log('clicked') }
+                    />
+                </div>
             </div>
         )
                 
