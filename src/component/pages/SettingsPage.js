@@ -1,7 +1,7 @@
 import React from 'react'
 // import NavigationBar from '../NavigationBar'
-import AccountManagement from '../AccountManagement'
-import UserInformation from '../UserInformation'
+import AccountManagement from '../UserInfo/AccountManagement'
+import UserInformation from '../UserInfo/UserInformation'
 
 class SettingsPage extends React.Component {
     render(){

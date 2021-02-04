@@ -1,17 +1,16 @@
 import React from 'react'
-import LISbutton from './LISbutton'
+import LISbutton from '../LISbutton'
 
-class FirstNameUserInfo extends React.Component {
+class PasswordUserInfo extends React.Component {
 
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
-            fName:'FNDefault',
+            pass:'PassDefault',
             isInEditMode: false
         }
     }
 
-    
     editMode=()=>{
         this.setState(
             {
@@ -24,7 +23,7 @@ class FirstNameUserInfo extends React.Component {
         this.setState(
             {
               isInEditMode: false,
-              fName: this.refs.textInput.value
+              pass: this.refs.textInput.value
             }
         )
     }
@@ -32,17 +31,18 @@ class FirstNameUserInfo extends React.Component {
     renderEditView = () => {
         return (
             <div>
-                <h4>First Name:  </h4>
+                <h4>Password:  </h4>
                 <input 
                     className='InputField'
                     type='text' 
-                    name='fName' 
+                    name='pass' 
                     defaultValue={this.state.value}
                     ref="textInput"
                     />  
                 {/* <button onClick={this.editMode}>X</button>
                 <button onClick={this.updateValue}>Ok</button> */}
-                  <LISbutton 
+                    
+                    <LISbutton 
                     text= 'Submit'
                     disabled={this.props.disabled}
                     onClick={this.updateValue}
@@ -55,6 +55,7 @@ class FirstNameUserInfo extends React.Component {
                     onClick={this.editMode}
                     className='lisb'
                     />
+
             </div>
         )
     }
@@ -62,14 +63,13 @@ class FirstNameUserInfo extends React.Component {
     renderDefaultView=()=>{
         return(
             <div>
-                <h4>First Name:  </h4>
+                <h4>Password:</h4>
             <div >
-                <p onDoubleClick={this.editMode}>{this.state.fName}</p>
+                <p onDoubleClick={this.editMode}>{this.state.pass}</p>
             </div>
         </div>
         )
     }
-
 
     render(){
 
@@ -78,5 +78,5 @@ class FirstNameUserInfo extends React.Component {
     }
 }
 
-export default FirstNameUserInfo 
+export default PasswordUserInfo 
 

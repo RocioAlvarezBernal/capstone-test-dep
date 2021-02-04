@@ -1,6 +1,6 @@
 import React from 'react'
-import InputField from "./InputField";
-import LISbutton from "./LISbutton";
+import InputField from "../InputField";
+import LISbutton from "../LISbutton";
 import UserStore from "./UserStore";
 
 class SIForm extends React.Component {

@@ -1,12 +1,12 @@
 import React from 'react'
-import LISbutton from './LISbutton'
+import LISbutton from '../LISbutton'
 
-class LastNameUserInfo extends React.Component {
+class FirstNameUserInfo extends React.Component {
 
     constructor(){
         super()
         this.state={
-            lName:'LNDefault',
+            fName:'FNDefault',
             isInEditMode: false
         }
     }
@@ -24,7 +24,7 @@ class LastNameUserInfo extends React.Component {
         this.setState(
             {
               isInEditMode: false,
-              lName: this.refs.textInput.value
+              fName: this.refs.textInput.value
             }
         )
     }
@@ -32,18 +32,17 @@ class LastNameUserInfo extends React.Component {
     renderEditView = () => {
         return (
             <div>
-                <h4>Last Name:</h4>
+                <h4>First Name:  </h4>
                 <input 
-                    className='InputField' 
+                    className='InputField'
                     type='text' 
-                    name='lName' 
+                    name='fName' 
                     defaultValue={this.state.value}
                     ref="textInput"
                     />  
                 {/* <button onClick={this.editMode}>X</button>
                 <button onClick={this.updateValue}>Ok</button> */}
-
-                    <LISbutton 
+                  <LISbutton 
                     text= 'Submit'
                     disabled={this.props.disabled}
                     onClick={this.updateValue}
@@ -56,7 +55,6 @@ class LastNameUserInfo extends React.Component {
                     onClick={this.editMode}
                     className='lisb'
                     />
-
             </div>
         )
     }
@@ -64,9 +62,9 @@ class LastNameUserInfo extends React.Component {
     renderDefaultView=()=>{
         return(
             <div>
-                <h4>Last Name:  </h4>
-            <div>
-                <p onDoubleClick={this.editMode}>{this.state.lName}</p>
+                <h4>First Name:  </h4>
+            <div >
+                <p onDoubleClick={this.editMode}>{this.state.fName}</p>
             </div>
         </div>
         )
@@ -80,5 +78,5 @@ class LastNameUserInfo extends React.Component {
     }
 }
 
-export default LastNameUserInfo 
+export default FirstNameUserInfo 
 

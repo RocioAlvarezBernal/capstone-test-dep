@@ -1,16 +1,17 @@
 import React from 'react'
-import LISbutton from './LISbutton'
+import LISbutton from '../LISbutton'
 
-class PasswordUserInfo extends React.Component {
+class LastNameUserInfo extends React.Component {
 
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
         this.state={
-            pass:'PassDefault',
+            lName:'LNDefault',
             isInEditMode: false
         }
     }
 
+    
     editMode=()=>{
         this.setState(
             {
@@ -23,7 +24,7 @@ class PasswordUserInfo extends React.Component {
         this.setState(
             {
               isInEditMode: false,
-              pass: this.refs.textInput.value
+              lName: this.refs.textInput.value
             }
         )
     }
@@ -31,17 +32,17 @@ class PasswordUserInfo extends React.Component {
     renderEditView = () => {
         return (
             <div>
-                <h4>Password:  </h4>
+                <h4>Last Name:</h4>
                 <input 
-                    className='InputField'
+                    className='InputField' 
                     type='text' 
-                    name='pass' 
+                    name='lName' 
                     defaultValue={this.state.value}
                     ref="textInput"
                     />  
                 {/* <button onClick={this.editMode}>X</button>
                 <button onClick={this.updateValue}>Ok</button> */}
-                    
+
                     <LISbutton 
                     text= 'Submit'
                     disabled={this.props.disabled}
@@ -63,13 +64,14 @@ class PasswordUserInfo extends React.Component {
     renderDefaultView=()=>{
         return(
             <div>
-                <h4>Password:</h4>
-            <div >
-                <p onDoubleClick={this.editMode}>{this.state.pass}</p>
+                <h4>Last Name:  </h4>
+            <div>
+                <p onDoubleClick={this.editMode}>{this.state.lName}</p>
             </div>
         </div>
         )
     }
+
 
     render(){
 
@@ -78,5 +80,5 @@ class PasswordUserInfo extends React.Component {
     }
 }
 
-export default PasswordUserInfo 
+export default LastNameUserInfo 
 

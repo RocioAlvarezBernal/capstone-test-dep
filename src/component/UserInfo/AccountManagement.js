@@ -1,5 +1,5 @@
 import React from 'react'
-import LISbutton from './LISbutton'
+import LISbutton from '../LISbutton'
 
 class AccountManagement extends React.Component {
     render(){

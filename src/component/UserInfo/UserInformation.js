@@ -2,7 +2,7 @@ import React from 'react'
 import FirstNameUserInfo from './FirstNameUserInfo';
 import LastNameUserInfo from './LastNameUserInfo';
 import PasswordUserInfo from './PasswordUserInfo';
-import LISbutton from './LISbutton';
+import LISbutton from '../LISbutton';
 
 class UserInformation extends React.Component {
 
