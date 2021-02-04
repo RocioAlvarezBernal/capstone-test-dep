@@ -43,27 +43,31 @@ async doLogin(){
     })
 
     try{
-        let res =await fetch ('login', {
+        let res =await fetch ('http://localhost:8080/authenticate', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
+            // stringify json will pass username and password from state which was entered by user to the api using enpoints 
             body: JSON.stringify({
                 username: this.state.username,
                 password: this.state.password
             })
         });
         let result = await res.json();
+        // if loginform is success set login to true 
         if(result&& result.success){
           UserStore.isLoggedIn= true;
           UserStore.username= result.username;  
         }
+        //else reset form 
         else if (result&&result.success === false){
             this.resetForm();
             alert(result.msg);
         }
     }
+    // incase error console log error and reset form 
     catch(e){
         console.log(e);
         this.resetForm();

@@ -6,7 +6,7 @@
 
 #NavBar {
   border: solid;
-  border-color: plum;
+  border-color: #282c34;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,8 +29,8 @@
 
 #logoImg{
   height:100px ;
-  border:dotted;
-  border-color: gray;
+  /* border:dotted; */
+  /* border-color: gray; */
 }
 
 /* .signInForm{
@@ -52,10 +52,10 @@
   border-color:orange;
 }
 
-#LandingPage{
+/* #LandingPage{
   border: solid;
   border-color:lime;
-}
+} */
 
 
 /* HomePage */
@@ -158,6 +158,7 @@
 body, html, #root, .app, .container {
   width: 100%;
   height: 100%;
+
 }
 
 .container {
@@ -167,7 +168,10 @@ body, html, #root, .app, .container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #282c34;
+  background-color:rgb(40, 111, 158);
+  border-color:#1b2841;
+  border:solid
+
 }
 
 .signInForm {
@@ -176,6 +180,7 @@ body, html, #root, .app, .container {
  max-width: 400px;
  padding-left: 20px;
  padding-right: 20px;
+
 }
 
 .InputField {
@@ -192,6 +197,7 @@ body, html, #root, .app, .container {
  padding: 12px;
  font-size: 14px;
  background: rgba(255, 255, 255, 1);
+
 }
 
 .lisb {
