@@ -1,26 +1,12 @@
-/* .App { */
-  html, body, #app, #app, .container{
-  height: 100%;
-  text-align: center;
-  /* background-color: midnightblue;
-  color:white; */
-  width: 100%;
+.App {
+  /* html, body, #app, #app, .container{ */
   /* height: 100%; */
-  /* height: 1000px; */
-}
-
-/* body, html, #root, .app, .container {
-  width: 100%;
-  height: 100%;
-  /* height: 50px; 
-  /* height: 1000px; 
-
-} */
+  text-align: center;
+  }
 
 #NavBar {
   border: solid;
   border-color: #03173f;
-  /* background-color:#03173f ; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,47 +16,18 @@
   flex-direction:row;
   justify-content: space-between;
   border: solid;
-  width: 400px;
   margin: 10px;
 }
 #NavBar ul li{
   margin: 30px;
   list-style: none;
-  /* width: 0px; */
   border: solid; 
   border-color:steelblue;
 }
 
 #logoImg{
   height:100px ;
-  /* border:dotted; */
-  /* border-color: gray; */
 }
-
-/* .signInForm{
-
-  margin-left: 35%;
-  width: 500px;
-  align-self: center ;
-  border: solid;
-  display: flex;
-  align-items:center;
-  flex-direction:column;
-}
-#signInForm input{
-  margin: 10px;
-} */
-
-/* #SettingsPage{
-  border: solid;
-  border-color:orange;
-} */
-
-/* #LandingPage{
-  border: solid;
-  border-color:lime;
-} */
-
 
 /* HomePage */
 #HPwrapper{
@@ -134,7 +91,7 @@
   display: flex;
   flex-direction:row;
   justify-content: space-around;
-  width: 85%;
+  width: 100%;
 }
 
 #userInfoDisp{
@@ -158,20 +115,7 @@
   margin-top: -30px; 
 }
 
-/* .userTextInput{
- height: 30px;
- width: 250px;
- /* margin-left: 40%; */
-/* justify-self: center; }*/
-
-
-/*.userBtn{
-  height: 30px;
-  width: 200px;
-} */
-
 #accMngmt{
-  /* border-color:; */
   width: 300px;
   height: 100%;
   border: dashed;
@@ -189,15 +133,13 @@
   font-size: 25px;
   color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color:rgb(40, 111, 158);
   border: solid;
   border-color:#1b2841;
-  width: 100%;
   height: 1000px;
-
 }
 
 .signInForm {

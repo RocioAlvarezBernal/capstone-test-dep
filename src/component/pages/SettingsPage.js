@@ -10,6 +10,7 @@ class SettingsPage extends React.Component {
             <main id='SettingsPageMain' >
                 <UserInformation />
                 <AccountManagement />
+                
             </main>
             </div>
         )

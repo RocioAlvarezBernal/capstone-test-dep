@@ -77,12 +77,15 @@ class UserInformation extends React.Component {
                 <LastNameUserInfo />
                 <PasswordUserInfo />
                 <div>
-                <LISbutton 
-                    text ={'Delete Your Account'}
-                    disabled={false}
-                    onClick ={ console.log('clicked') }
-                    />
+                <button 
+                    type="button" 
+                    class="btn btn-danger"
+                >
+                Delete your account
+                </button>
+
                 </div>
+
             </div>
         )
                 
