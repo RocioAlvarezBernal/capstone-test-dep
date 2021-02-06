@@ -9,13 +9,13 @@ constructor(props){
     this.state={
         username:'',
         password:'',
-        buttonDisables: false
+        // buttonDisables: false
     }
 }
 
 setInputValue(property, val){
     val =val.trim();
-    if (val.length > 8){
+    if (val.length  >12){
         return;
     }
     this.setState({
@@ -31,6 +31,8 @@ resetForm(){
     })
 }
 
+
+
 async doLogin(){
     if (!this.state.username){
         return;
@@ -40,7 +42,14 @@ async doLogin(){
     }
     this.setState({
         buttonDisables: true
+        
     })
+
+     let jsonbody = {
+        username: this.state.username,
+        password: this.state.password
+    }
+    console.log(jsonbody)
 
     try{
         let res =await fetch ('http://localhost:8080/authenticate', {
@@ -50,10 +59,11 @@ async doLogin(){
                 'Content-Type': 'application/json'
             },
             // stringify json will pass username and password from state which was entered by user to the api using enpoints 
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
+            // body: JSON.stringify({
+            //     username: this.state.username,
+            //     password: this.state.password
+            // })
+            body: JSON.stringify(jsonbody)
         });
         let result = await res.json();
         // if loginform is success set login to true 
@@ -74,7 +84,11 @@ async doLogin(){
     }
 }
 
-    render(){
+logBody() {
+    console.log(this.jsonbody)
+}
+
+    render(){        
         return(
             <div className='signInForm'>
                 Log In

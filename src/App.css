@@ -46,7 +46,6 @@
 
 #accountTable {
   border: solid;
-  border-color: red;
 }
 
 #listOfTransactions{
@@ -62,13 +61,11 @@
 
 #transactionWrapper{
   border: solid;
-  border-color: blue;
 }
 
 #Tbutton{
   height: 50px;
   border: solid;
-  border-color:limegreen;
   margin: 10px;
 }
 
@@ -80,8 +77,6 @@
   border: solid;
   border-color:orchid;
 }
-
-
 
 /* Settings Pagee */
 
@@ -124,10 +119,20 @@
   align-items: center ;
 }
 
+#ahlink {
+  font-size: 10px;
+  text-decoration: none;
+}
+#ahlink, #ahlink:visited {
+  text-decoration: none; 
+  color: white; 
+}
 
+#ahlink:hover {
+    background-color: teal;
+}
 
 /* Sign In form  */
-
 
 .container {
   font-size: 25px;
@@ -140,6 +145,11 @@
   border: solid;
   border-color:#1b2841;
   height: 1000px;
+}
+
+.container p {
+  font-size: 20px;
+
 }
 
 .signInForm {

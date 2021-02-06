@@ -1,7 +1,7 @@
 import React from 'react'
 import LISbutton from '../LISbutton'
 import CreateAccountOpt from './CreateAccountOpt'
-
+import DeleteABankAccount from './DeleteABankAccount';
 class AccountManagement extends React.Component {
     render(){
         return(
@@ -14,13 +14,15 @@ class AccountManagement extends React.Component {
                         onClick ={ console.log('clicked') }
                     /> */}
                     {/* <input type="submit" value='Delete an Account'></input> */}
-                    <LISbutton 
+                    {/* <LISbutton 
                         text ={'Delete A Bank Account'}
                         disabled={false}
                         // onClick ={ console.log('clicked') }
-                    />
+                    /> */}
+
 
                     <CreateAccountOpt />
+                    <DeleteABankAccount/>
                 </div>
 
                 

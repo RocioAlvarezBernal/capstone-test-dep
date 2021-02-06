@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 class AccountOverview extends React.Component {
     render(){
         return(
-            <div>
+            <div className="container">
                
             <table id='accountTable'>
 {/* Savings */}
@@ -25,7 +26,13 @@ class AccountOverview extends React.Component {
                 <tr><th>Regular IRA</th></tr>
                 <tr><td>AccountId</td></tr>  
 
-                 <input type='button' value='Manage Accounts'></input>      
+                 {/* <input type='button' value='Manage Accounts'></input> */}
+                 <Link to='/Settings'>
+                    <p id="ahlink">
+                        click here to visit your user settings to manage your accounts
+                    </p>
+                 </Link>
+                
             </table>
 
             </div>
