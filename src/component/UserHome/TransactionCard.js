@@ -1,29 +1,31 @@
 import React from 'react'; 
 
 class TransactionCard extends React.Component {
-    constructor(){
-        super()
-        this.state= {
-            DorW= " ",
-            tranType:" ",
-            Amount: " "
-        }
-    }
+    // constructor(){
+    //     super()
+    //     this.state= {
+    //         DorW: " test ",
+    //         tranType:" test ",
+    //         Amount: " test "
+    //     }
+    // }
 //false = deposit 
 //true= withdraw
 
     render(){
-        let DepositorWithdraw = this.state.tranType;
+        // let DepositorWithdraw = this.state.tranType;
         return(
             <div>
              <div class='transaction'>
-                    <p >
-                    {DepositorWithdraw}
+                    <li>
+                     {this.props.DorW}
                     <br></br>
-                    Transaction Type - $0.00 
+                     {this.props.tranType}
+                    -
+                     {this.props.Amount}
                     <br></br>
-                    0/0/0 00:00:00
-                    </p>
+                    {this.props.date}
+                    </li>
                 </div>
             </div>
 

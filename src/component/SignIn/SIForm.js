@@ -1,21 +1,25 @@
 import React from 'react'
 import InputField from "../InputField";
+import JWT from '../JWT';
 import LISbutton from "../LISbutton";
 import UserStore from "./UserStore";
+
 
 class SIForm extends React.Component {
 constructor(props){
     super(props);
+
     this.state={
         username:'',
         password:'',
-        // buttonDisables: false
+        buttonDisables: false,
+        Token:''
     }
 }
 
 setInputValue(property, val){
     val =val.trim();
-    if (val.length  >12){
+    if (val.length  > 12){
         return;
     }
     this.setState({
@@ -31,8 +35,6 @@ resetForm(){
     })
 }
 
-
-
 async doLogin(){
     if (!this.state.username){
         return;
@@ -41,51 +43,44 @@ async doLogin(){
         return;
     }
     this.setState({
-        buttonDisables: true
+        buttonDisables: false
         
     })
 
      let jsonbody = {
-        username: this.state.username,
+        userName: this.state.username,
         password: this.state.password
     }
-    console.log(jsonbody)
+    // console.log(jsonbody)
 
     try{
-        let res =await fetch ('http://localhost:8080/authenticate', {
-            method: 'post',
+        let res =await fetch ('http://localhost:8080/api/authenticate', {
+            method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            // stringify json will pass username and password from state which was entered by user to the api using enpoints 
-            // body: JSON.stringify({
-            //     username: this.state.username,
-            //     password: this.state.password
-            // })
             body: JSON.stringify(jsonbody)
         });
         let result = await res.json();
-        // if loginform is success set login to true 
-        if(result&& result.success){
+        console.log(result);
+
+// if loginform is success set login to true 
+        if(result && result.success){
           UserStore.isLoggedIn= true;
-          UserStore.username= result.username;  
+          UserStore.username= result.username; 
+          JWT.jwt=result.JWT;
         }
-        //else reset form 
+//else reset form 
         else if (result&&result.success === false){
             this.resetForm();
-            alert(result.msg);
         }
     }
-    // incase error console log error and reset form 
+// incase error console log error and reset form 
     catch(e){
         console.log(e);
         this.resetForm();
     }
-}
-
-logBody() {
-    console.log(this.jsonbody)
 }
 
     render(){        

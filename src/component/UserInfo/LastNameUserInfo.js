@@ -1,17 +1,45 @@
 import React from 'react'
 import LISbutton from '../LISbutton'
+import JWT from '../JWT'
 
 class LastNameUserInfo extends React.Component {
 
     constructor(){
         super()
         this.state={
-            lName:'LNDefault',
+            lName:'loading...',
             isInEditMode: false
         }
     }
 
-    
+    showDisplay(){
+        let testToken= `Bearer ${ JWT.jwt}`
+
+        fetch ('http://localhost:8080/api/Me', {
+            
+            headers: 
+                {
+                    'Authorization': testToken
+                }
+            })
+
+        .then(response=>{
+            if (!response.ok){
+                throw Error ("RESPONSE NOT OKAY");
+            }
+            return response.json();
+        })
+        .then(data=>{
+            const LNpassed = data.lastName
+                console.log(LNpassed)
+                this.setState(
+                    {lName: LNpassed}
+                )
+        })
+    }
+
+// edit 
+// ______________________________________
     editMode=()=>{
         this.setState(
             {
@@ -71,7 +99,9 @@ class LastNameUserInfo extends React.Component {
         </div>
         )
     }
-
+    componentDidMount() {
+        this.showDisplay()
+    }
 
     render(){
 

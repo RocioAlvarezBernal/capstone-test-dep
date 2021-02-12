@@ -1,15 +1,18 @@
 import React from 'react'; 
 import InputField from "../InputField"
+import JWT from "../JWT"
 
 class MakeTranBtn extends React.Component {
     constructor(){
         super()
         this.state = {
-            isClciked: false
+            isClciked: false,
+            Id: null,
+            Amount: null
         }
         this.onClick = this.onClick.bind(this);
-        this.isClickedT = this.isClickedT.bind(this);
-        this.defaultView = this.defaultView.bind(this);
+        this.postTran = this.postTran.bind(this);
+        // this.defaultView = this.defaultView.bind(this);
     }
 
 onClick() {
@@ -21,53 +24,53 @@ onClick() {
     console.log(this.state.isClciked)
 }
 
+setInputValue(property, val){
+    val=""
+    this.setState({
+        [property]:val
+    })
+}
+
+
+async postTran(){
+    let jsonbody = {
+        amount: this.state.Amount,
+        checking: this.state.Id
+    }
+    let testToken= `Bearer ${ JWT.jwt}`
+
+
+    fetch('http://localhost:8080/api/Me/CheckingAccount/Deposit' , {
+        method: 'POST',
+        headers: 
+        {
+            'Authorization': testToken
+        },
+        body: JSON.stringify(jsonbody)
+    });
+}
+
+
 isClickedT(){
     return (
         <div> 
-            <InputField
-                type="radio" 
-                placeholder="Deposit"
-                // value = { this.state.username ? this.state.username: ''}
-                // onChange = { (val) => this.setInputValue('username' , val)}
-            /> 
+            <input type='text' placeholder="$00.00"
+            value = {this.state.Amount ? this.state.Amount: null}
+            onChange= { (val) => this.setInputValue('Amount' , val)}
 
-            <InputField 
-                 type= 'radio'
-                 placeholder="null"
-                 value = "Withdraw"
-                 onChange = "null"
+            >
+            </input>
 
-            />
-{/* ///// */}
-            <InputField 
-                 type="radio" 
-                 placeholder="cash"
-                 value = "cash"
-            />
-            <InputField 
-                 type="radio" 
-                 placeholder="check"
-            />
-            <InputField 
-                 type="radio" 
-                 placeholder="ATM"
-            />
-            <InputField 
-                 type="radio" 
-                 placeholder="Transfer"
-            />
-{/* //// */}
-            <InputField 
-                type="number"
-                placeholder="From"
-            />
-            <InputField    
-                type="number"
-                placeholder="to"
-            />
-        
+            <input type='text' placeholder="AccountID"
+            value = {this.state.Id ? this.state.Id: null}
+            onChange = { (val) => this.setInputValue('Id' , val)}
+            >
+            </input>
+
+            <br></br>
 
             <button
+            onClick={this.postTran}
             className='btn'>
                 Submit
             </button>
@@ -75,7 +78,7 @@ isClickedT(){
             <button
                 className='btn'
                 onClick={this.onClick}>
-                X
+                Cancel
             </button>
 
            
@@ -91,7 +94,7 @@ defaultView () {
                 className='btn'
                 onClick={this.onClick}
             >
-                Make a Transaction
+                Make a Transaction in checking account
             </button>
         </div>
     )

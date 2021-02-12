@@ -1,40 +1,61 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import SavingsAccountDisp from './DipAcct/SavingsAccountDisp';
+import CheckingAccountDisp from './DipAcct/CheckingAccountDisp';
+import CDAccountsDisp from './DipAcct/CDAccountsDisp';
+import DBACheckingAccountDisp from './DipAcct/DBACheckingAccountDisp';
+import RolloverIRADisp from './DipAcct/RolloverIRADisp';
+import RothIRADisp from './DipAcct/RothIRADisp';
+import RegularIRADisp from'./DipAcct/RegularIRADisp';
+
 
 class AccountOverview extends React.Component {
+
     render(){
+
         return(
+
             <div className="container">
-               
-            <table id='accountTable'>
-{/* Savings */}
-                <tr><th>Savings</th></tr>
-                <tr><td>AccountId</td></tr>
-{/* Checkings */}
-                <tr><th>Checkings</th></tr>
-                <tr><td>AccountId</td></tr>
-                <tr><td>AccountId</td></tr>
-{/* CD */}
-                <tr><th>Certifcate of Deposit</th></tr>
-                <tr><td>AccountId</td></tr>
-{/* IRA */} 
-                <tr><th>IRA</th></tr>
-                <tr><th>Rollover IRA</th></tr>
-                <tr><td>AccountId</td></tr>
-                <tr><th>Roth IRA</th></tr>
-                <tr><td>AccountId</td></tr>
-                <tr><th>Regular IRA</th></tr>
-                <tr><td>AccountId</td></tr>  
+                <div>
+                    
+                    <div className="accountTable">
+                        <div>
+                            <h1>Savings Account</h1>
+                            <SavingsAccountDisp/>
+                        </div>
+                        
+                        <div>
+                            <h1>Checking Account</h1>
+                            <CheckingAccountDisp/>
+                        </div>
+                        
+                        <div>
+                            <h1>DBA - Checking Account</h1>
+                            <DBACheckingAccountDisp />
+                        </div>
 
-                 {/* <input type='button' value='Manage Accounts'></input> */}
-                 <Link to='/Settings'>
-                    <p id="ahlink">
-                        click here to visit your user settings to manage your accounts
-                    </p>
-                 </Link>
-                
-            </table>
+                        <div>
+                            <h1>CD Accounts</h1>
+                            <CDAccountsDisp />
+                        </div>
 
+                        <div>
+                            <h1>IRA Accounts</h1>
+                            <h4>Rollover IRA</h4>
+                            <RolloverIRADisp />
+                            <h4>Roth IRA</h4>
+                            <RothIRADisp />
+                            <h4>Regular IRA</h4>
+                            <RegularIRADisp />
+                        </div>
+                    </div>
+                    
+                    <Link to='/Settings'>
+                        <p id="ahlink">
+                            click here to visit your user settings to manage your accounts
+                        </p>
+                    </Link>
+                </div>
             </div>
         )
     }

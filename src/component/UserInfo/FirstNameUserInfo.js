@@ -1,17 +1,45 @@
 import React from 'react'
 import LISbutton from '../LISbutton'
-
+import UserStore from '../SignIn/UserStore'
+import JWT from '../JWT';
 class FirstNameUserInfo extends React.Component {
 
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
-            fName:'FNDefault',
+            fName: "loading...",
             isInEditMode: false
         }
     }
+   
+     showDisplay(){
+        let testToken= `Bearer ${ JWT.jwt}`
+        
+        fetch ('http://localhost:8080/api/Me', {
+            
+            headers: 
+                {
+                    'Authorization': testToken
+                }
+            })
 
-    
+        .then(response=>{
+            if (!response.ok){
+                throw Error ("RESPONSE NOT OKAY");
+            }
+            return response.json();
+        })
+        .then(data=>{
+            const FNpassed = data.firstName
+                console.log(FNpassed)
+                this.setState(
+                    {fName: FNpassed}
+                )
+        })
+    }
+
+// edit 
+// ______________________________________
     editMode=()=>{
         this.setState(
             {
@@ -66,10 +94,19 @@ class FirstNameUserInfo extends React.Component {
             <div >
                 <p onDoubleClick={this.editMode}>{this.state.fName}</p>
             </div>
-        </div>
+
+            {/* <button
+                    value= 'view'
+                    // disabled={this.state.buttonDisables}
+                    onClick ={this.showDisplay}
+                    className='lisb'
+            >views</button>  */} 
+         </div> 
         )
     }
-
+    componentDidMount() {
+        this.showDisplay()
+    }
 
     render(){
 

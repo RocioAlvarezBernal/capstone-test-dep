@@ -43,9 +43,8 @@
   padding-right: 50px; 
 }
 
-
-#accountTable {
-  border: solid;
+.accountTable {
+  overflow: scroll;
 }
 
 #listOfTransactions{
@@ -134,7 +133,7 @@
 
 /* Sign In form  */
 
-.container {
+/* .container {
   font-size: 25px;
   color: #fff;
   display: flex;
@@ -195,4 +194,4 @@
  background: #fff;
  cursor: pointer;
 }
-
+ */

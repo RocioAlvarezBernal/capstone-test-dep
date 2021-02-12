@@ -1,16 +1,44 @@
 import React from 'react'
 import LISbutton from '../LISbutton'
+import JWT from '../JWT';
 
 class PasswordUserInfo extends React.Component {
 
     constructor(props){
         super(props)
         this.state={
-            pass:'PassDefault',
+            pass:'loading...',
             isInEditMode: false
         }
     }
+    showDisplay(){
+        let testToken= `Bearer ${JWT.jwt}`
 
+        fetch ('http://localhost:8080/api/Me', {
+            
+            headers: 
+                {
+                    'Authorization': testToken
+                }
+            })
+
+        .then(response=>{
+            if (!response.ok){
+                throw Error ("RESPONSE NOT OKAY");
+            }
+            return response.json();
+        })
+        .then(data=>{
+            const password = data.user.password
+                console.log(password)
+                this.setState(
+                    {pass: password}
+                )
+        })
+    }
+
+// edit 
+// ______________________________________
     editMode=()=>{
         this.setState(
             {
@@ -69,6 +97,9 @@ class PasswordUserInfo extends React.Component {
             </div>
         </div>
         )
+    }
+    componentDidMount() {
+        this.showDisplay()
     }
 
     render(){
