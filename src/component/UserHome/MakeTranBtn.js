@@ -37,9 +37,11 @@ async postTran(){
         amount: this.state.Amount,
         checking: this.state.Id
     }
-    let testToken= `Bearer ${ JWT.jwt}`
+    let testToken= `Bearer ${JWT.jwt}`
 
     try{ 
+        console.log(jsonbody);
+
     let res = await fetch('http://localhost:8080/api/Me/CheckingAccount/Deposit' , {
         method: 'POST',
         headers: 
@@ -65,14 +67,14 @@ isClickedT(){
     return (
         <div> 
             <input type='text' placeholder="$00.00"
-            value = {this.state.Amount ? this.state.Amount: null}
+            value = {this.state.Amount ? this.state.Amount: ""}
             onChange= { (val) => this.setInputValue('Amount' , val)}
 
             >
             </input>
 
             <input type='text' placeholder="AccountID"
-            value = {this.state.Id ? this.state.Id: null}
+            value = {this.state.Id ? this.state.Id: ""}
             onChange = { (val) => this.setInputValue('Id' , val)}
             >
             </input>

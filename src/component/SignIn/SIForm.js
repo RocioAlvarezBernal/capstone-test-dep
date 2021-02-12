@@ -59,7 +59,7 @@ async doLogin(){
     }
     // console.log(jsonbody)
 
-    this.onLogIn();
+    // this.onLogIn();
 
     try{
         let res =await fetch ('http://localhost:8080/api/authenticate', {
@@ -74,11 +74,13 @@ async doLogin(){
         console.log(result);
 
 // if loginform is success set login to true 
-        if(result && result.success){
+// result && result.success
+        if( res.status === 200){
+        //   localStorage.JWTtest= res.jwt;  
           UserStore.isLoggedIn= true;
           UserStore.username= result.username; 
-          JWT.jwt=result[0].jwt;
-        //   window.location = "/Home"
+          JWT.jwt=res.jwt;
+          window.location = "/Home"
         //  this.onLogIn();
         }
 //else reset form 
@@ -92,8 +94,6 @@ async doLogin(){
         this.resetForm();
     }
 }
-
- 
 
     render(){        
         return(

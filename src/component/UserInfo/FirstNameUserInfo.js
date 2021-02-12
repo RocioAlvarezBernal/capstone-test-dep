@@ -31,7 +31,7 @@ class FirstNameUserInfo extends React.Component {
         })
         .then(data=>{
             const FNpassed = data.firstName
-                console.log(FNpassed)
+                console.log(data.firstName)
                 this.setState(
                     {fName: FNpassed}
                 )
