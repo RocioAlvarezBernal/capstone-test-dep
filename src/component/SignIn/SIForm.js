@@ -3,7 +3,7 @@ import InputField from "../InputField";
 import JWT from '../JWT';
 import LISbutton from "../LISbutton";
 import UserStore from "./UserStore";
-
+import {Link} from 'react-router-dom';
 
 class SIForm extends React.Component {
 constructor(props){
@@ -15,6 +15,7 @@ constructor(props){
         buttonDisables: false,
         Token:''
     }
+    this.onLogIn= this.onLogIn.bind(this)
 }
 
 setInputValue(property, val){
@@ -35,6 +36,11 @@ resetForm(){
     })
 }
 
+onLogIn(){
+    alert("You logged in and will be redirected to your homepage")
+    window.location = "/Home";
+}
+
 async doLogin(){
     if (!this.state.username){
         return;
@@ -53,6 +59,8 @@ async doLogin(){
     }
     // console.log(jsonbody)
 
+    this.onLogIn();
+
     try{
         let res =await fetch ('http://localhost:8080/api/authenticate', {
             method: 'POST',
@@ -69,7 +77,9 @@ async doLogin(){
         if(result && result.success){
           UserStore.isLoggedIn= true;
           UserStore.username= result.username; 
-          JWT.jwt=result.JWT;
+          JWT.jwt=result[0].jwt;
+        //   window.location = "/Home"
+        //  this.onLogIn();
         }
 //else reset form 
         else if (result&&result.success === false){
@@ -82,6 +92,8 @@ async doLogin(){
         this.resetForm();
     }
 }
+
+ 
 
     render(){        
         return(
@@ -107,6 +119,7 @@ async doLogin(){
                     onClick ={ () => this.doLogin()}
                     className='lisb'
                 />
+
             </div>
         )
     }
