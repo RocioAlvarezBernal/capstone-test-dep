@@ -39,8 +39,8 @@ async postTran(){
     }
     let testToken= `Bearer ${ JWT.jwt}`
 
-
-    fetch('http://localhost:8080/api/Me/CheckingAccount/Deposit' , {
+    try{ 
+    let res = await fetch('http://localhost:8080/api/Me/CheckingAccount/Deposit' , {
         method: 'POST',
         headers: 
         {
@@ -48,8 +48,18 @@ async postTran(){
         },
         body: JSON.stringify(jsonbody)
     });
-}
+    let result = await res.json();
+    console.log(result);
 
+    if(result && result.success){
+        console.log("true")
+      }
+}
+    
+catch(e){
+    console.log(e)
+}
+}
 
 isClickedT(){
     return (

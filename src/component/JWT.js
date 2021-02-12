@@ -1,4 +1,4 @@
 const JWT = {
-    jwt: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWRpcSIsImV4cCI6MTYxMzExMDc3NiwiaWF0IjoxNjEzMDY3NTc2fQ.5EXjoepAlPyo9mybT-zRsPAG0t1RsF3O_Oergwm5x_s'
-};
+    jwt: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWRpcSIsImV4cCI6MTYxMzE1NjI2NiwiaWF0IjoxNjEzMTEzMDY2fQ.y902KkKlJCwZA0Nny38yAJyRp8MsbRky5YqMchFc4YY"
+}
 export default JWT;
