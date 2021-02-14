@@ -1,4 +1,7 @@
 import React from 'react'
+import JWT from '../JWT'
+import LISbutton from '../LISbutton'
+import URL from '../URL'
 
 class DeleteABankAccount extends React.Component {
 
@@ -6,7 +9,8 @@ class DeleteABankAccount extends React.Component {
         super()
         this.state={
             inDisplayMode: false,
-            accId: null
+            isClicked:false,
+            accId: ""
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
@@ -14,78 +18,83 @@ class DeleteABankAccount extends React.Component {
 
     onInputChange(event){
         this.setState({
-            [event.target.name]: event.target.value
+            accId: event.target.value
         });
+        console.log(this.state.accId)
+    }
+
+    selectAcct(){
+        let testToken= `Bearer ${JWT.jwt}`
+
+        fetch(`${URL.url}/Me/Delete/${this.state.accId}`, {
+            method: 'DELETE',
+            headers:
+            {
+                'Authorization': testToken
+            }
+        }
+        )
     }
 
     onSubmit(){
-        console.log(this.state)
-        // this.setState({inDisplayMode: !this.state.inDisplayMode});
-    }
+            this.setState({
+                isClicked: !this.state.isClicked
+            });
+            console.log(this.state)
+            this.selectAcct()
+        }    
 
     render(){
-        const { items } = this.state;
+            return (
+                <div >
+        
+              <button
+              onClick={this.onSubmit}
+              >
+                  submit
+              </button>
 
-        const buttonText =  this.state.inDisplayMode ? "Cancel" : "Delete A Bank Account";
-        const form = this.state.inDisplayMode ? (
+                <br/>
 
-            <div >
-                    <div>
-                        <button
-                            className= "btn"
-                            type="submit"
-                            onSubmit = {this.onSubmit}
-                        >
-                            Submit
-                        </button>
-                        <p>Select the account you want to delete</p>
-                        
-                        <table >
-{/* Savings */}
-                            <tr><th>Savings</th></tr>
-                            <tr><td>AccountId</td></tr>
-{/* Checkings */}
-                            <tr><th>Checkings</th></tr>
-                            <tr><td>AccountId</td></tr>
-                            <tr><td>AccountId</td></tr>
-{/* CD */}
-                            <tr><th>Certifcate of Deposit</th></tr>
-                            <tr><td>AccountId</td></tr>
-{/* IRA */} 
-                            <tr><th>IRA</th></tr>
-                            <tr><th>Rollover IRA</th></tr>
-                            <tr><td>AccountId</td></tr>
-                            <tr><th>Roth IRA</th></tr>
-                            <tr><td>AccountId</td></tr>
-                            <tr><th>Regular IRA</th></tr>
-                            <tr><td>AccountId</td></tr>  
-                    </table>
-                </div>
+                <input 
+                type="text"
+                placeholder= "Account Id"
+                onChange={this.onInputChange}
+                >
+                </input>
+
+
+                <button type="button" class="btn" data-toggle="modal" data-target="#Modal">
+                        button
+                    </button>
+
+                    <div class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary"></button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+               
             </div>
 
-             ) : ( <div></div>
-
-        );
-
-        return(
 
 
-            <div>
-            <button
-                className='btn'
-                onClick = {( () => {
-                    this.setState({inDisplayMode: !this.state.inDisplayMode});
-                })}   
-            >
-            {buttonText}
-            </button>
-            {form}
-
-           
-           </div>
-
-        )
+            )
+        }
     }
-}
+    
 
 export default DeleteABankAccount 

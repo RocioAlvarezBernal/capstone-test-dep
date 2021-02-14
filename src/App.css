@@ -1,35 +1,54 @@
 .App {
-  /* html, body, #app, #app, .container{ */
-  /* height: 100%; */
-  text-align: center;
-  }
+  /* display:flex; */
+  /* justify-content: center;
+  background-color: white; */
+}
 
-#NavBar {
+/* .pages{
+  /* background-color:rgb(40, 111, 158);
+} */
+
+ #NavBar {
   border: solid;
   border-color: #03173f;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
+  /* justify-content: ; */
+} 
+
 #NavBar ul{
   display: flex;
   flex-direction:row;
   justify-content: space-between;
-  border: solid;
-  margin: 10px;
+  /* border: solid; */
 }
 #NavBar ul li{
   margin: 30px;
   list-style: none;
   border: solid; 
   border-color:steelblue;
-}
+} 
 
 #logoImg{
   height:100px ;
 }
 
 /* HomePage */
+
+#accountBalances{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-evenly;
+ width: 80%;
+ border: solid;
+ /* margin-left: 20%; */
+}
+
+#accountBalances li{
+  list-style-type: none;
+  display:flex;
+}
+
 #HPwrapper{
   border-color: lightseagreen;
   border: solid
@@ -43,19 +62,32 @@
   padding-right: 50px; 
 }
 
-.accountTable {
+
+#accountOverview {
   overflow: scroll;
+  margin-left: 10%;
+  border:solid;
+
 }
 
 #listOfTransactions{
   height: 300px;
   width: 450px;
   overflow: scroll;
+  margin-right: 10%;
+  border: solid;
 }
 
-.transaction{
+#transactioncss{
   border: solid;
-  border-color: indigo;
+  border-color: rgb(182, 181, 181);
+  border-width: thick;
+
+}
+
+#transactioncss p{
+margin-top: -5PX;
+margin-bottom: -5PX;
 }
 
 #transactionWrapper{
@@ -72,10 +104,7 @@
   margin: 15px;
 }
 
-#listOfTransactions{
-  border: solid;
-  border-color:orchid;
-}
+
 
 /* Settings Pagee */
 
@@ -96,8 +125,8 @@
   display: flex;
   flex-direction:column;
   align-items: center ;
-  /* border-width: 1px; */
-}
+   /* border-width: 1px;  */
+} 
 #userInfoDisp, h1{
   border: solid;
   border-width: .25px;
@@ -131,9 +160,9 @@
     background-color: teal;
 }
 
-/* Sign In form  */
+Sign In form 
 
-/* .container {
+ .container {
   font-size: 25px;
   color: #fff;
   display: flex;
@@ -194,4 +223,3 @@
  background: #fff;
  cursor: pointer;
 }
- */

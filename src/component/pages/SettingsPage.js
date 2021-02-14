@@ -7,7 +7,7 @@ import NavigationBar from '../Navbar/NavigationBar';
 class SettingsPage extends React.Component {
     render(){
         return(
-            <div className = 'HPwrapper'>
+            <div className='pages'>
                 <nav> <NavigationBar/></nav>
             <main id='SettingsPageMain' >
                 <UserInformation />

@@ -1,5 +1,6 @@
 import React from 'react'
 import JWT from "../../JWT"
+import URL from '../../URL';
 
 class CDTran extends React.Component {
     constructor(){
@@ -25,7 +26,7 @@ class CDTran extends React.Component {
      showTran(){
         let testToken= `Bearer ${JWT.jwt}`
 
-        fetch ('http://localhost:8080/api/Me/CDAccounts', {
+        fetch (`${URL.url}/Me/CDAccounts`, {
             headers: 
                 {
                     'Authorization': testToken

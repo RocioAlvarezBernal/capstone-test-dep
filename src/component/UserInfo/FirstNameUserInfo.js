@@ -1,7 +1,9 @@
-import React from 'react'
-import LISbutton from '../LISbutton'
-import UserStore from '../SignIn/UserStore'
+import React from 'react';
+import LISbutton from '../LISbutton';
+import UserStore from '../SignIn/UserStore';
 import JWT from '../JWT';
+import URL from '../URL';
+
 class FirstNameUserInfo extends React.Component {
 
     constructor(props){
@@ -15,7 +17,7 @@ class FirstNameUserInfo extends React.Component {
      showDisplay(){
         let testToken= `Bearer ${ JWT.jwt}`
         
-        fetch ('http://localhost:8080/api/Me', {
+        fetch (`${URL.url}/Me`, {
             
             headers: 
                 {

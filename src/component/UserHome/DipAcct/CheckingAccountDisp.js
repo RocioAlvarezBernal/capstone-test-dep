@@ -14,7 +14,7 @@ class CheckingAccountDisp extends React.Component {
      showCA(){
         let testToken= `Bearer ${ JWT.jwt}`
 
-        fetch ('http://localhost:8080/api/Me/CheckingAccount', {
+        fetch (`${URL.url}/Me/CheckingAccount`, {
             headers: 
                 {
                     'Authorization': testToken

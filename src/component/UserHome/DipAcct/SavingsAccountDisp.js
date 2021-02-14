@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import JWT from '../../JWT';
+import URL from '../../URL';
+
 
 class SavingsAccountDisp extends React.Component {
     constructor(){
@@ -16,7 +18,7 @@ class SavingsAccountDisp extends React.Component {
         let testToken= `Bearer ${ JWT.jwt}`
         console.log( localStorage.JWTtest);
 
-        fetch ('http://localhost:8080/api/Me/SavingsAccounts', {
+        fetch (`${URL.url}/Me/SavingsAccounts`, {
             headers: 
                 {
                     'Authorization': testToken

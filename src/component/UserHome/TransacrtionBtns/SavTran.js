@@ -1,5 +1,7 @@
 import React from 'react'
 import JWT from "../../JWT"
+import moment from 'moment';
+import URL from '../../URL';
 
 class SavTran extends React.Component {
     constructor(){
@@ -7,25 +9,15 @@ class SavTran extends React.Component {
         this.state={
             id:0,
             amount: 0,
-            date: null,
+            dateOpened: null,
             isClicked: false
         }
-        this.onClicked=this.onClicked.bind(this);
-    }
-
-    onClicked() {
-        this.setState(
-            {
-                isClciked: !this.state.isClciked
-            }
-        )
-        console.log(this.state.isClciked)
     }
     
      showTran(){
         let testToken= `Bearer ${JWT.jwt}`
 
-        fetch ('http://localhost:8080/api/Me/SavingsAccounts', {
+        fetch (`${URL.url}/Me/Transactions`, {
             headers: 
                 {
                     'Authorization': testToken
@@ -39,18 +31,19 @@ class SavTran extends React.Component {
             return response.json();
         })
         .then(data=>{
-                console.log(data.savingstransactions)
-
-                const transactionCard = data.savingstransactions.map(data => {
-                    return`<div className="transaction" >
-                        <p>${data.type}</p>
-                        <p>Id: ${data.id}</p>
+                console.log(data)
+                // let date = moment(dateOpened).format('MM/DD/YYYY');
+                const transactionCard = data.map(data => {
+                    return`<div id="transactioncss">
+                        <h4>${data.type}</h4>
+                        <p>Transaction Id: ${data.id}</p>
                         <p>Amount: $ ${data.amount}</p>
-                        <p>Date of Transactoon:  ${data.transactionDate}</p></di>
+                        <p>Date of Transaction: ${data.transactionDate}</p>
+                        <p>Account type: ${data.location}</p>
+                        <p>Transaction type: ${data.type}</p>
+                        <p>Origin Account: ${data.originAccountID}</p></div>
                     ` 
                 })
-                // console.log(transactionCard)
-
                 document.querySelector('#saving').insertAdjacentHTML('afterbegin', transactionCard )
         })
         .catch((error) => {
@@ -59,37 +52,54 @@ class SavTran extends React.Component {
         );
     }
 
-    clickedView(){
-        return(
+    componentDidMount(){
+        this.showTran();
+    }
+
+    render(){        
+        return( 
         <div className = "container">
             <div id="saving">
-                        
-            </div>
-            <button
-                className='btn'
-                onClick={this.onClicked}>
-            X
-            </button>
-
-           </div>   
-        )  
-    }
-
-    defaultView() {
-        return(
-            <div className = "container">
-                <button className= 'btn' onClick={() => {
-                    this.onClicked();
-                    this.showTran();
-                    }}> 
-                Savings Transactions
-                </button>
-            </div>
-        )
-    }
-  
-    render() {
-        return this.state.isClciked ? this.clickedView() : this.defaultView()
+                                
+         </div>
+         </div>
+         )
     }
 }
+
+    //
+    
+    /* clickedView(){ */
+//         return(
+//         <div className = "container">
+//             <div id="saving">
+                        
+//             </div>
+//             <button
+//                 className='btn'
+//                 onClick={this.onClicked}>
+//             X
+//             </button>
+
+//            </div>   
+//         )  
+//     }
+
+//     defaultView() {
+//         return(
+//             <div className = "container">
+//                 <button className= 'btn' onClick={() => {
+//                     this.onClicked();
+//                     this.showTran();
+//                     }}> 
+//                 Savings Transactions
+//                 </button>
+//             </div>
+//         )
+//     }
+  
+//     render() {
+//         return this.state.isClciked ? this.clickedView() : this.defaultView()
+//     }
+// }
 export default SavTran;

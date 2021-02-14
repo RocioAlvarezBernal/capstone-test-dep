@@ -1,5 +1,6 @@
 import React from 'react'
 import JWT from '../../JWT'
+import moment from 'moment';
 
 class CDAccountsDisp extends React.Component {
         constructor(){
@@ -14,7 +15,7 @@ class CDAccountsDisp extends React.Component {
          showCA(){
             let testToken= `Bearer ${JWT.jwt}`
 
-            fetch ('http://localhost:8080/api/Me/CDAccounts', {
+            fetch (`${URL.url}/Me/CDAccounts`, {
                 headers: 
                     {
                         'Authorization': testToken

@@ -42,6 +42,7 @@ class CheckTran extends React.Component {
         })
         .then(data=>{
                 console.log(data.checkingtransactions[0].id)
+                console.log(data.targetAccountTransactions)
                 const transactionCard = 
                 data.checkingtransactions.map(data => {
                     return `<div className="transaction" >
@@ -55,6 +56,7 @@ class CheckTran extends React.Component {
 
                 document.querySelector('#checking').insertAdjacentHTML('afterbegin', transactionCard )
         })
+        
         .catch((error) => {
             console.log(error);
         }

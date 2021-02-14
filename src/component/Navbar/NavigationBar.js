@@ -11,14 +11,20 @@ class NavigationBar extends React.Component{
           
         return(
             <nav id= "NavBar">
-                <img src={process.env.PUBLIC_URL + "/T9Logo.png"} alt='T9_logo' id='logoImg'/>
+                
+                {/* <img src={process.env.PUBLIC_URL + "/T9Logo.png"} alt='T9_logo' id='logoImg'/> */}
+                
+                 <ul class="nav justify-content-end">
+                
+                 <Link to='/Home'><li class="nav-item"><a class="nav-link"> Home </a></li></Link>
 
-                <ul>
-                    <Link to='/Home'><li>Home</li></Link>
-                    <Link to='/Settings'><li>User Settings</li></Link>
-                    {/* <Link to='/'><li>Logout</li></Link> */}
-                    <li onClick={this.onclick}> Logout</li>
+                 <Link to='/Settings'><li class="nav-item"><a class="nav-link">User Settings</a></li></Link>
+
+                <li class="nav-item" onClick={this.onclick}> <a class="nav-link">Logout</a> </li> 
+                    
                 </ul>
+
+
             </nav>
         )
     }

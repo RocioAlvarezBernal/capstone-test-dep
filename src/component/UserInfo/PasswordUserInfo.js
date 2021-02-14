@@ -14,7 +14,7 @@ class PasswordUserInfo extends React.Component {
     showDisplay(){
         let testToken= `Bearer ${JWT.jwt}`
 
-        fetch ('http://localhost:8080/api/Me', {
+        fetch (`${URL.url}/Me`, {
             
             headers: 
                 {
@@ -26,6 +26,7 @@ class PasswordUserInfo extends React.Component {
             if (!response.ok){
                 throw Error ("RESPONSE NOT OKAY");
             }
+            console.log(response.json)
             return response.json();
         })
         .then(data=>{

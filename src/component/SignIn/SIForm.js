@@ -4,6 +4,7 @@ import JWT from '../JWT';
 import LISbutton from "../LISbutton";
 import UserStore from "./UserStore";
 import {Link} from 'react-router-dom';
+import {observer} from 'mobx-react'; 
 
 class SIForm extends React.Component {
 constructor(props){
@@ -16,6 +17,7 @@ constructor(props){
         Token:''
     }
     this.onLogIn= this.onLogIn.bind(this)
+    // this.setInputValue= this.setInputValue.bind(this)
 }
 
 setInputValue(property, val){
@@ -62,7 +64,7 @@ async doLogin(){
     // this.onLogIn();
 
     try{
-        let res =await fetch ('http://localhost:8080/api/authenticate', {
+        let res =await fetch (`${URL.url}/authenticate`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -125,4 +127,4 @@ async doLogin(){
     }
 }
 
-export default SIForm 
+export default observer(SIForm)

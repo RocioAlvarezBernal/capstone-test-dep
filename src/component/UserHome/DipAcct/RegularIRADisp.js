@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import JWT from '../../JWT'
+import URL from '../../URL';
+
 class CheckingAccountDisp extends React.Component {
     constructor(){
         super()
@@ -14,7 +16,7 @@ class CheckingAccountDisp extends React.Component {
      showCA(){
         let testToken= `Bearer ${ JWT.jwt}`
 
-        fetch ('http://localhost:8080/api/Me/IRA', {
+        fetch (`${URL.url}/Me/IRA`, {
             headers: 
                 {
                     'Authorization': testToken
