@@ -92,7 +92,7 @@ class FirstNameUserInfo extends React.Component {
     renderDefaultView=()=>{
         return(
             <div>
-                <h4>First Name:  </h4>
+                <h4>First Name:</h4>
             <div >
                 <p onDoubleClick={this.editMode}>{this.state.fName}</p>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import JWT from '../../JWT'
 import moment from 'moment';
+import URL from '../../URL'
 
 class CDAccountsDisp extends React.Component {
         constructor(){
@@ -16,6 +17,7 @@ class CDAccountsDisp extends React.Component {
             let testToken= `Bearer ${JWT.jwt}`
 
             fetch (`${URL.url}/Me/CDAccounts`, {
+
                 headers: 
                     {
                         'Authorization': testToken
@@ -29,7 +31,7 @@ class CDAccountsDisp extends React.Component {
                 return response.json();
             })
             .then(data=>{
-                    console.log(data)
+                    console.log(data.cDAccounts)
                     const bankAcctCard = 
                     data.map(data => {
                         return`<div id='accountTable'><p>Account Id: ${data.id}</p>

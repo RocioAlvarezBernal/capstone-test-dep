@@ -1,11 +1,9 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom';
-// import moduleName from '../../public/T9Logo.png';
+import LOmodal from './LOmodal'
+
+
 class NavigationBar extends React.Component{
-    onclick(){
-        alert("You are about to log out")
-        window.location = "/";
-    } 
 
     render(){    
           
@@ -20,12 +18,13 @@ class NavigationBar extends React.Component{
 
                  <Link to='/Settings'><li class="nav-item"><a class="nav-link">User Settings</a></li></Link>
 
-                <li class="nav-item" onClick={this.onclick}> <a class="nav-link">Logout</a> </li> 
-                    
+                 {/* <Link to='/AboutUs'><li class="nav-item"><a class="nav-link">About Us</a></li></Link> */}
+
+                {/* <li class="nav-item" onClick={this.onclick}> <a class="nav-link">Logout</a> </li>  */}
+
+                <LOmodal />
                 </ul>
-
-
-            </nav>
+          </nav>
         )
     }
 }

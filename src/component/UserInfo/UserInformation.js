@@ -16,12 +16,12 @@ class UserInformation extends React.Component {
                 <LastNameUserInfo />
                 <PasswordUserInfo />
                 <div>
-                <button 
+                {/* <button 
                     type="button" 
                     class="btn btn-danger"
                 >
                 Delete your account
-                </button>
+                </button> */}
 
                 </div>
 

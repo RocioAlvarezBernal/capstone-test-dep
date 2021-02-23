@@ -5,7 +5,7 @@ import NavigationBar from './component/Navbar/NavigationBar'
 import HomePage from './component/pages/HomePage'
 import SettingsPage from './component/pages/SettingsPage';
 import LandingPage from './component/pages/LandingPage';
-
+// import AboutUs from './component/'
 function App() {
   return (
     <Router>
@@ -16,6 +16,8 @@ function App() {
           <Route path="/Home" component={HomePage}/>
           
           <Route path="/Settings" component={SettingsPage}/>
+
+          {/* <Route parh="AboutUs" component={AboutUs}/> */}
         </Switch>
       </div>
     </Router>

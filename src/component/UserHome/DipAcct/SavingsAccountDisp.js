@@ -14,7 +14,7 @@ class SavingsAccountDisp extends React.Component {
             interestRate:null
         }
     }
-     showCA(){
+     showSA(){
         let testToken= `Bearer ${ JWT.jwt}`
         console.log( localStorage.JWTtest);
 
@@ -41,15 +41,6 @@ class SavingsAccountDisp extends React.Component {
                         interestRate: data.interestRate
                     }
                 )
-
-                // const bankAcctCard = 
-                // allData.map(data => {
-                //     return `<p>id ${data.id}</p>` 
-                // })
-                
-                // console.log(bankAcctCard)
-
-                // document.querySelector('#checking').insertAdjacentHTML('afterbegin', "<p>hello</p>")
         })
         .catch((error) => {
             console.log(error);
@@ -58,7 +49,7 @@ class SavingsAccountDisp extends React.Component {
     }
 
 componentDidMount(){
-    this.showCA();
+    this.showSA();
 
 }
     render(){
@@ -79,13 +70,10 @@ componentDidMount(){
 
             <div >
                 <div id='accountTable'>
-                    <h4>Savings Account</h4>
                     <p>Account Id: {id}</p>
                     <p>Balance: {balance}</p>
                     <p>Date opened on: {opednedOn}</p>
                     <p>interestRate: {interestRate}</p>
-                    
-            
                 </div>
             </div>
         )

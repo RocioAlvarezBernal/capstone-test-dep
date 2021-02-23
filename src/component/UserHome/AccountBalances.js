@@ -52,7 +52,7 @@ componentDidMount(){
     render(){
         return(
             <div>
-                <h4>Welcome {this.state.usersName}</h4>
+                <h4 id="welcomeBanner">Welcome {this.state.usersName}</h4>
                 <ul id="accountBalances">
                     <li>
                     Overall Balance: {this.state.overallBalances}

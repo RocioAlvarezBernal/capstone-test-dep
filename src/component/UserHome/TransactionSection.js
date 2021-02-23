@@ -26,7 +26,7 @@ class TransactionSection extends React.Component {
   
     render() {
         return(
-            <div>
+            <div className="allTransactionSection">
                 <MakeTranBtn />
                 <br></br>
                 <br></br>

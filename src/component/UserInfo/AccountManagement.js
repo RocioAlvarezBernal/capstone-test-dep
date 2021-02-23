@@ -7,8 +7,11 @@ class AccountManagement extends React.Component {
         return(
             <div>
                 <div id='accMngmt'>
+                    <hr className="new5"></hr>
                     <CreateAccountOpt />
+                    <hr className="new5"></hr>
                     <DeleteABankAccount/>
+                    <hr className="new5"></hr>
                 </div>
            </div>
         )

@@ -1,4 +1,5 @@
 import {extendObservable} from 'mobx';
+import SIForm from './SIForm';
 
 class UserStore{
     constructor(){
@@ -6,7 +7,8 @@ class UserStore{
             loading: true,
             isLoggedIn: false,
             usename:'',
-            token:''
+            token: SIForm.state
+            // token:'' 
         })
     }
 }

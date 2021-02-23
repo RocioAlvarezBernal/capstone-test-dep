@@ -14,40 +14,46 @@ class AccountOverview extends React.Component {
     render(){
 
         return(
-
-            // <div className="container">
-            <div id="accountOverview"> 
-                <div>
+             <div id="accountOverview" className="list-group">  
                     
                     <div className="accountTable">
                         <div>
                             <h1>Savings Account</h1>
                             <SavingsAccountDisp/>
                         </div>
-                        
+                        <hr className="new5"></hr>
                         <div>
                             <h1>Checking Account</h1>
                             <CheckingAccountDisp/>
                         </div>
-                        
+                        <hr className="new5"></hr>
+
                         <div>
                             <h1>DBA - Checking Account</h1>
                             <DBACheckingAccountDisp />
                         </div>
+                        <hr className="new5"></hr>
 
                         <div>
                             <h1>CD Accounts</h1>
                             <CDAccountsDisp />
                         </div>
+                        <hr className="new5"></hr>
 
                         <div>
                             <h1>IRA Accounts</h1>
                             <h4>Rollover IRA</h4>
                             <RolloverIRADisp />
+                            <hr class="new1"></hr>
+
                             <h4>Roth IRA</h4>
                             <RothIRADisp />
+                            <hr class="new1"></hr>
+
                             <h4>Regular IRA</h4>
                             <RegularIRADisp />
+                            <hr class="new1"></hr>
+
                         </div>
                     </div>
                     
@@ -56,8 +62,8 @@ class AccountOverview extends React.Component {
                             click here to visit your user settings to manage your accounts
                         </p>
                     </Link>
-                </div>
-            </div>
+
+                    </div>
         )
     }
 }

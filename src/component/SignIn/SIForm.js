@@ -5,7 +5,7 @@ import LISbutton from "../LISbutton";
 import UserStore from "./UserStore";
 import {Link} from 'react-router-dom';
 import {observer} from 'mobx-react'; 
-
+import URL from '../URL'
 class SIForm extends React.Component {
 constructor(props){
     super(props);
@@ -39,8 +39,8 @@ resetForm(){
 }
 
 onLogIn(){
-    alert("You logged in and will be redirected to your homepage")
-    window.location = "/Home";
+    // alert("You logged in and will be redirected to your homepage")
+    // window.location = "/Home";
 }
 
 async doLogin(){

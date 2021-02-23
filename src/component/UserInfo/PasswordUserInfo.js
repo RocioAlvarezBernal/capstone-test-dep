@@ -7,7 +7,7 @@ class PasswordUserInfo extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            pass:'loading...',
+            pass:'********',
             isInEditMode: false
         }
     }
@@ -26,12 +26,17 @@ class PasswordUserInfo extends React.Component {
             if (!response.ok){
                 throw Error ("RESPONSE NOT OKAY");
             }
+            // let res= (response.json());
             console.log(response.json)
+            // let result = response.json();
             return response.json();
+            // return result;
+            
         })
         .then(data=>{
+            console.log(this.result)
             const password = data.user.password
-                console.log(password)
+                console.log("this " + password)
                 this.setState(
                     {pass: password}
                 )
@@ -96,6 +101,28 @@ class PasswordUserInfo extends React.Component {
             <div >
                 <p onDoubleClick={this.editMode}>{this.state.pass}</p>
             </div>
+
+                {/* <h4>First Name:</h4>
+            <div >
+                <p onDoubleClick={this.editMode}>{this.state.pass}</p>
+            </div>
+            
+                <h4>First Name:</h4>
+            <div >
+                <p onDoubleClick={this.editMode}>{this.state.fName}</p>
+           
+            </div>
+                <h4>First Name:</h4>
+            <div >
+                <p onDoubleClick={this.editMode}>{this.state.fName}</p>
+            </div>
+            
+                <h4>First Name:</h4>
+            <div >
+                <p onDoubleClick={this.editMode}>{this.state.fName}</p>
+            </div> */}
+
+
         </div>
         )
     }

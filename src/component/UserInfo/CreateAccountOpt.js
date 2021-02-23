@@ -64,26 +64,36 @@ class CreateAccountOpt extends React.Component {
 
       render() {
         return (
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              type of account:
-              <select value={this.state.value} onChange={this.handleChange}>
-                    <option value="null">-</option>
-                    <option value="SavingsAccounts">Savings</option>
-                    <option value="CheckingAccount">Checkings</option>
-                    <option value="CD">CD</option>
-                    <option value="IRA">IRA</option>
-              </select>
-            </label>
+          <div id="createAccount" >
+            <h3>Create a banking account</h3>
 
-            <input
-                type="text"
-                placeholder= "starting balance"
-                onChange={this.onInputChange}
-            >
-            </input>
-            <input type="submit" value="Submit" />
-          </form>
+            <hr class="new1"></hr>
+
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                type of account:
+                <br>
+                </br>
+                <select className="delCrtinput"value={this.state.value} onChange={this.handleChange}>
+                      <option value="null">-</option>
+                      <option value="SavingsAccounts">Savings</option>
+                      <option value="CheckingAccount">Checkings</option>
+                      <option value="CD">CD</option>
+                      <option value="IRA">IRA</option>
+                </select>
+              </label>
+              <br></br>
+              <input
+                 className="delCrtinput"
+                  type="text"
+                  placeholder= "starting balance"
+                  onChange={this.onInputChange}
+              >
+              </input>
+              <br></br>
+              <button className="delCrtBtn"type="submit" value="Submit">Create</button>
+            </form>
+          </div>
         );
       }
     }

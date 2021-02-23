@@ -9,7 +9,7 @@ class SettingsPage extends React.Component {
         return(
             <div className='pages'>
                 <nav> <NavigationBar/></nav>
-            <main id='SettingsPageMain' >
+            <main id='SettingsPage' >
                 <UserInformation />
                 <AccountManagement />
                 

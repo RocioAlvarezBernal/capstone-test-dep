@@ -16,17 +16,30 @@ class MakeTranBtn extends React.Component {
             buttonDisables: false,
         }
         this.doTran = this.doTran.bind(this);
-        this.setInputValue = this.setInputValue.bind(this)
+        this.setAmount = this.setAmount.bind(this)
+        this.setTarget = this.setTarget.bind(this)
+        this.setSource = this.setSource.bind(this)
     }
 
-setInputValue(property, val){
-    val= val.trim();
-    if(val.length>100){
-        return
-    }
+setAmount(event){
     this.setState({
-        [property]:val
+        Amount: event.target.value,
     })
+    console.log(this.state)
+}
+
+setSource(event){
+    this.setState({
+        sourceId:event.target.value,
+    })
+    console.log(this.state)
+}
+
+setTarget(event){
+    this.setState({
+        targetId: event.target.value,
+    })
+    console.log(this.state)
 }
 
 resetForm(){
@@ -38,90 +51,64 @@ resetForm(){
 }
 
 async doTran(){
-    if (!this.state.Amount){
-        return;
+    let jsonbody = {
+            sourceAccountID : this.state.sourceId,
+            targetAccountID : this.state.targetId,
+            amount : this.state.Amount,
     }
-    if(!this.state.sourceId){
-        return;
-    }
-    if(!this.state.targetId){
-        return;
-    }
-    this.setState({
-        buttonDisables: false
-        
-    })
+    let testToken= `Bearer ${JWT.jwt}`
 
-     let jsonbody = {
-            sourceId : this.state.sourceId,
-            targetId : this.state.targetId,
-            Amount : this.state.Amount,
-    }
-    let testToken= `Bearer ${ JWT.jwt}`
-
-    try{
-        let res =await fetch (`${URL.url}/Me/Transactions`, {
+    let results = await fetch (`${URL.url}/Me/Transfer`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authentication': testToken,
+                'Authorization': testToken
             },
             body: JSON.stringify(jsonbody)
-        });
-        let result = await res.json();
-        console.log(result);
+        }); 
+        let result = await results.json();
+        // console.log(result);
 
-        if( res.status === 200){
-        console.log("test")
+             if(results.status === 200 ){
+                console.log("thisfar")
+            }
         }
-
-        else if (result&&result.success === false){
-            this.resetForm();
-        }
-    }
-
-    catch(e){
-        console.log(e);
-        this.resetForm();
-    }
-}
 
     render(){        
         return(
-            <div className='make transfer'>
-                Make Transfer
-                <InputField
-                 type="text" 
-                 placeholder="Amount"
-                 value = { this.state.Amount ? this.state.Amount: ''}
-                 onChange = { (val) => this.setInputValue('Amount' , val)}
-                 />   
+            <div className="borderMakeTransfer"> 
+                <div className='makeTransfer'>
+                    <h3>Make Transfer</h3>
+                    <input
+                    type="text" 
+                    placeholder="Amount"
+                    onChange = {this.setAmount}
+                    ></input>   
 
-                <InputField
-                 type="Source Account ID" 
-                 placeholder="Source Account Id"
-                 value = { this.state.sourceId ? this.state.sourceId : ''}
-                 onChange = { (val) => this.setInputValue('sourceId' , val)}
-                 />   
+                    <input
+                    type="text" 
+                    placeholder="Source Account Id"
+                    onChange = {this.setSource}
+                    ></input>   
 
-                <InputField
-                 type="text" 
-                 placeholder="Target Account Id"
-                 value = { this.state.targetId ? this.state.targetId : ''}
-                 onChange = { (val) => this.setInputValue('targetId' , val)}
-                 />   
+                    <input
+                    type="text" 
+                    placeholder="Target Account Id"
+                    onChange = {this.setTarget}
+                    ></input>   
 
-                <button 
-                    className= "btn"
-                    text= 'submit'
-                    disabled={this.state.buttonDisables}
-                    onClick ={ () => this.doTran}
-                    className='lisb'
-                >
-                    submit
-                </button>
+                    <button 
+                        className= "btn"
+                        text= 'submit'
+                        disabled={this.state.buttonDisables}
+                        onClick ={ this.doTran}
+                        className='logoutbtn'
+                    >
+                        submit
+                    </button>
 
+                </div>
             </div>
         )
     }

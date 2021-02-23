@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import JWT from '../../JWT'
+import URL from '../../URL'
+
 class CheckingAccountDisp extends React.Component {
     constructor(){
         super()
@@ -12,7 +14,7 @@ class CheckingAccountDisp extends React.Component {
         }
     }
      showCA(){
-        let testToken= `Bearer ${ JWT.jwt}`
+        let testToken= `Bearer ${JWT.jwt}`
 
         fetch (`${URL.url}/Me/CheckingAccount`, {
             headers: 
@@ -37,15 +39,6 @@ class CheckingAccountDisp extends React.Component {
                         interestRate: data.interestRate
                     }
                 )
-
-                // const bankAcctCard = 
-                // allData.map(data => {
-                //     return `<p>id ${data.id}</p>` 
-                // })
-                
-                // console.log(bankAcctCard)
-
-                // document.querySelector('#checking').insertAdjacentHTML('afterbegin', "<p>hello</p>")
         })
         .catch((error) => {
             console.log(error);
@@ -77,14 +70,10 @@ componentDidMount(){
 
             <div >
                 <div id='accountTable'>
-                    <h4>CheckingAccount</h4>
                     <p>Account Id: {id}</p>
                     <p>Balance: {balance}</p>
                     <p>Date opened on: {opednedOn}</p>
                     <p>interestRate: {interestRate}</p>
-                    
-                
-               
                 </div>
             </div>
         )

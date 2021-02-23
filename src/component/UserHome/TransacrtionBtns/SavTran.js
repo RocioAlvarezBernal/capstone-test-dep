@@ -58,11 +58,11 @@ class SavTran extends React.Component {
 
     render(){        
         return( 
-        <div className = "container">
+        // <div className = "center">
             <div id="saving">
                                 
          </div>
-         </div>
+        //  </div>
          )
     }
 }
